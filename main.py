@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk  # Pillow kütüphanesi kullanılarak resim işleme
 
 class YanginKontrolUygulamasi:
@@ -43,7 +43,7 @@ class YanginKontrolUygulamasi:
 
     def baslatFonksiyonu(self):
         # Burada fotoğraf üzerinde yangın kontrolü yapılacak işlemleri ekleyebilirsiniz.
-        pass
+        messagebox.showinfo("Başlatıldı", "Yangın kontrolü başlatıldı!")
 
 if __name__ == "__main__":
     pencere = tk.Tk()
