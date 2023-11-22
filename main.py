@@ -17,10 +17,10 @@ class FireControlApplication:
         self.frame.pack(expand=True, fill="both")
 
         # Create GUI elements
-        self.label = tk.Label(self.frame, text="Artificial Intelligence Supported Fire Control", bg="black", fg="white")
+        self.label = tk.Label(self.frame, text="Artificial Intelligence Supported Fire Control", fg="black")
         self.label.pack(pady=10)
 
-        self.photo_label = tk.Label(self.frame, text="Select a photo for Fire Control", bg="black", fg="white")
+        self.photo_label = tk.Label(self.frame, text="Select a photo for Fire Control", fg="black")
         self.photo_label.pack(pady=10)
 
         self.photo_button = tk.Button(self.frame, text="Select Photo", command=self.selectPhoto, bg="gray", fg="black")
