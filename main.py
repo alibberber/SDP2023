@@ -1,51 +1,60 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
-from PIL import Image, ImageTk  # Pillow kütüphanesi kullanılarak resim işleme
+from PIL import Image, ImageTk
 
-class YanginKontrolUygulamasi:
-    def __init__(self, pencere):
-        self.pencere = pencere
-        self.pencere.title("Yangın Kontrol Uygulaması")
+class FireControlApplication:
+    def __init__(self, window):
+        self.window = window
+        self.window.title("Fire Control Application")
 
-        # Arayüz elemanlarını oluştur
-        self.label = tk.Label(pencere, text="Yapay Zeka Destekli Yangın Kontrol")
+        # Set the window size to be half of the screen size
+        window_width = self.window.winfo_screenwidth() // 2
+        window_height = self.window.winfo_screenheight() // 2
+        self.window.geometry(f"{window_width}x{window_height}")
+
+        # Create a frame with a black background
+        self.frame = tk.Frame(window, bg="black")
+        self.frame.pack(expand=True, fill="both")
+
+        # Create GUI elements
+        self.label = tk.Label(self.frame, text="Artificial Intelligence Supported Fire Control", bg="black", fg="white")
         self.label.pack(pady=10)
 
-        self.foto_label = tk.Label(pencere, text="Ateş Kontrolü için bir fotoğraf seçin.")
-        self.foto_label.pack(pady=10)
+        self.photo_label = tk.Label(self.frame, text="Select a photo for Fire Control", bg="black", fg="white")
+        self.photo_label.pack(pady=10)
 
-        self.foto_button = tk.Button(pencere, text="Fotoğraf Seç", command=self.fotoSec)
-        self.foto_button.pack(pady=10)
+        self.photo_button = tk.Button(self.frame, text="Select Photo", command=self.selectPhoto, bg="gray", fg="black")
+        self.photo_button.pack(pady=10)
 
-        self.baslat_button = tk.Button(pencere, text="Başlat", command=self.baslatFonksiyonu)
-        self.baslat_button.pack(pady=10)
+        self.start_button = tk.Button(self.frame, text="Start", command=self.startFunction, bg="gray", fg="black")
+        self.start_button.pack(pady=10)
 
-    def fotoSec(self):
-        # Kullanıcıya dosya seçme penceresi göster
-        dosya_yolu = filedialog.askopenfilename(filetypes=[("Resim Dosyaları", "*.png")])
+    def selectPhoto(self):
+        # Show the file selection dialog to the user
+        file_path = filedialog.askopenfilename(filetypes=[("Image Files", "*.png")])
 
-        # Seçilen resmi ekranda göster
-        if dosya_yolu:
-            self.gosterResim(dosya_yolu)
+        # Display the selected image
+        if file_path:
+            self.showImage(file_path)
 
-    def gosterResim(self, dosya_yolu):
-        resim = Image.open(dosya_yolu)
-        resim = resim.resize((300, 300), Image.ANTIALIAS)
-        tk_resim = ImageTk.PhotoImage(resim)
+    def showImage(self, file_path):
+        image = Image.open(file_path)
+        image = image.resize((300, 300), Image.ANTIALIAS)
+        tk_image = ImageTk.PhotoImage(image)
 
-        # Eğer önceki bir resim varsa, güncelle
-        if hasattr(self, 'resim_etiketi'):
-            self.resim_etiketi.config(image=tk_resim)
-            self.resim_etiketi.image = tk_resim
+        # If there is a previous image, update it
+        if hasattr(self, 'image_label'):
+            self.image_label.config(image=tk_image)
+            self.image_label.image = tk_image
         else:
-            self.resim_etiketi = tk.Label(self.pencere, image=tk_resim)
-            self.resim_etiketi.pack(pady=10)
+            self.image_label = tk.Label(self.frame, image=tk_image, bg="black")
+            self.image_label.pack(pady=10)
 
-    def baslatFonksiyonu(self):
-        # Burada fotoğraf üzerinde yangın kontrolü yapılacak işlemleri ekleyebilirsiniz.
-        messagebox.showinfo("Başlatıldı", "Yangın kontrolü başlatıldı!")
+    def startFunction(self):
+        # Add image processing for fire control here
+        messagebox.showinfo("Started", "Fire control started!")
 
 if __name__ == "__main__":
-    pencere = tk.Tk()
-    uygulama = YanginKontrolUygulamasi(pencere)
-    pencere.mainloop()
+    window = tk.Tk()
+    app = FireControlApplication(window)
+    window.mainloop()
