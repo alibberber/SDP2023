@@ -22,7 +22,7 @@ class YanginKontrolUygulamasi:
 
     def fotoSec(self):
         # Kullanıcıya dosya seçme penceresi göster
-        dosya_yolu = filedialog.askopenfilename(filetypes=[("Resim Dosyaları", "*.png;*.jpg;*.jpeg;*.gif")])
+        dosya_yolu = filedialog.askopenfilename(filetypes=[("Resim Dosyaları", "*.png")])
 
         # Seçilen resmi ekranda göster
         if dosya_yolu:
