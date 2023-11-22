@@ -50,6 +50,7 @@ class FireControlApplication:
             self.image_label = tk.Label(self.frame, image=tk_image, bg="black")
             self.image_label.pack(pady=10)
 
+
     def startFunction(self):
         # Add image processing for fire control here
         messagebox.showinfo("Started", "Fire control started!")
