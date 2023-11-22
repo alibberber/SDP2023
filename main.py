@@ -12,22 +12,9 @@ class FireControlApplication:
         window_height = self.window.winfo_screenheight() // 2
         self.window.geometry(f"{window_width}x{window_height}")
 
-        # Set the background color for the window
-        self.window.configure(bg="black")
-
         # Create a frame with a black background
         self.frame = tk.Frame(window, bg="black")
         self.frame.pack(expand=True, fill="both")
-
-        # Load an image to be displayed above "Select Photo" label
-        image_path = "mef.jpeg"  # Replace with the actual path to your image
-        self.logo_image = Image.open(image_path)
-        self.logo_image = self.logo_image.resize((150, 150), Image.ANTIALIAS)
-        self.tk_logo_image = ImageTk.PhotoImage(self.logo_image)
-
-        # Create a label to display the image
-        self.logo_label = tk.Label(self.frame, image=self.tk_logo_image, bg="black")
-        self.logo_label.pack(pady=10)
 
         # Create GUI elements
         self.label = tk.Label(self.frame, text="Artificial Intelligence Supported Fire Control", bg="black", fg="white")
