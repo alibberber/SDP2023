@@ -54,6 +54,7 @@ class FireControlApplication:
         # Add image processing for fire control here
         messagebox.showinfo("Started", "Fire control started!")
 
+
 if __name__ == "__main__":
     window = tk.Tk()
     app = FireControlApplication(window)
