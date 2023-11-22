@@ -2,6 +2,7 @@ import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
 
+
 class FireControlApplication:
     def __init__(self, window):
         self.window = window
