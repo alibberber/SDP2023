@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import filedialog, messagebox
 from PIL import Image, ImageTk
-print("selam")
+
 class FireControlApplication:
     def __init__(self, window):
         self.window = window
@@ -11,8 +11,6 @@ class FireControlApplication:
         window_width = self.window.winfo_screenwidth() // 2
         window_height = self.window.winfo_screenheight() // 2
         self.window.geometry(f"{window_width}x{window_height}")
-
-        # Create a frame with a black background
 
         self.frame.pack(expand=True, fill="both")
 
@@ -50,11 +48,9 @@ class FireControlApplication:
             self.image_label = tk.Label(self.frame, image=tk_image, bg="black")
             self.image_label.pack(pady=10)
 
-
     def startFunction(self):
         # Add image processing for fire control here
         messagebox.showinfo("Started", "Fire control started!")
-
 
 if __name__ == "__main__":
     window = tk.Tk()
