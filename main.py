@@ -12,6 +12,8 @@ class FireControlApplication:
         window_height = self.window.winfo_screenheight() // 2
         self.window.geometry(f"{window_width}x{window_height}")
 
+        # Create a frame with a black background
+        self.frame = tk.Frame(window)
         self.frame.pack(expand=True, fill="both")
 
         # Create GUI elements
